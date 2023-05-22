@@ -101,28 +101,6 @@ class Net:
         """
         return self.Length[0](np.subtract(a-b))#consider outsourcing subtract
 
-    def _backProp_(self, input, target, prev=[]):#target includes the 1
-        """
-        backpropogate errors through network recursively, update weights
-        """
-
-        self.GradientVector = []
-        result = self._evaluate(input)
-        err = self._error(result, target)
-        print(err)
-        layers = len(result[1])
-        if prev==[]:
-            prev = [1 for i in range(len(target))]
-        for i in range(layers-1, -1, -1):
-            for neur in result[1][i]:
-                for weight in range(len(result[1][i][0])):
-                    self.GradientVector.append()
-
-    def _backProp_n(self, output, target, blayer = 0, prev = []):#prev is partial derivs of cost function w.r.t. last layer output
-        local_partials_d_dw = output[1][0]
-        local_partials_d_do = output[1][1]
-        cur_grads = [local_partials_d_dw[i]*prev[i] for i in range(len(prev))]
-
     def _getCost(self, hypo, target):
         diff = np.subtract(hypo, target)
         grad = [self.Length[1](diff[i]) for i in range(len(diff))]
