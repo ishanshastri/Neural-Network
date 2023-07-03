@@ -1,4 +1,4 @@
-# VAE-Descent
+# NN
 A plain-vanilla Neural Network Architecture built from scratch using only numpy, math and random (+ matplotlib for visualization) !
 
 Current Highlights:
